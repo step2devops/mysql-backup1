@@ -1,8 +1,23 @@
+def project_owner_team_email = 'jsnrahul@gmail.com'
 pipeline{
     agent{
         label "server1"
     }
+    parameters {        
+        string(name: 'project_owner_team_email', defaultValue: project_owner_team_email, description: 'project_owner_team_email')
+
+    }
     stages{
+        stage('send-notification')
+        {
+            steps
+            {
+                script
+                {
+                    emailext subject: '${JOB_NAME}' - '${BUILD_NUMBER}', body: 'Job URL: ${BUILD_URL}', to: '${project_owner_team_email}'
+                }
+            }
+        }
         stage("stage1"){
             steps{
                 sh '''
@@ -11,14 +26,8 @@ pipeline{
                 '''
             }
         }
+    
         
     }
-    post {
-    success {
-        mail to: mishra.ambesh786@gmail.com, subject: "The Pipeline success :("
-    }
-    failure {
-        mail to: mishra.ambesh786@gmail.com, subject: "The Pipeline success :("
-    }
-  }
+
 }
