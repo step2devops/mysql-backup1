@@ -1,13 +1,13 @@
 pipeline{
     agent{
-        lable 'server1'
+        lable "server1"
     }
     stages{
-        stage('stage1'){
+        stage("stage1"){
             steps{
                 sh '''
-                d=date
-                aws s3 cp /root/mysqlbackup.sql s3://backup-dbmysql/mysqlbackup"$d".sql
+                
+                aws s3 cp /root/mysqlbackup.sql s3://backup-dbmysql/mysqlbackup"`date`".sql
                 '''
             }
         }
