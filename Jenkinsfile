@@ -1,4 +1,4 @@
-def project_owner_team_email = 'jsnrahul@gmail.com'
+def project_owner_team_email = 'mishra.ambesh786@gmail.com'
 pipeline{
     agent{
         label "server1"
