@@ -4,7 +4,7 @@ pipeline{
         label "server1"
     }
     parameters {        
-        string(name: 'project_owner_team_email', defaultValue: project_owner_team_email, description: 'project_owner_team_email')
+        string(name: 'project_owner_team_email', defaultValue: 'project_owner_team_email', description: 'project_owner_team_email')
 
     }
     stages{
