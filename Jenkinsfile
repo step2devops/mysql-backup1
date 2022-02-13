@@ -11,5 +11,14 @@ pipeline{
                 '''
             }
         }
+        
     }
+    post {
+    success {
+        mail to: mishra.ambesh786@gmail.com, subject: "The Pipeline success :("
+    }
+    failure {
+        mail to: mishra.ambesh786@gmail.com, subject: "The Pipeline success :("
+    }
+  }
 }
